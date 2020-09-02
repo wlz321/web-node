@@ -30,7 +30,7 @@ const Rest = require(path.join(FrameWorkPath, 'rest.js') );
 const View = require(path.join(FrameWorkPath, 'view.js') );
 const Model = require(path.join(FrameWorkPath, 'model.js'));
 Model.loadSQL();
-Model.loadNOSQL();
+// Model.loadNOSQL();
 
 // ================================================================================================
 
