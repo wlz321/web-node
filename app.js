@@ -41,6 +41,7 @@ Bizes.load();
 // ================================================================================================
 
 const app = new Koa({
+	proxy:true,
 	keys: CookieKeys
 });
 app.on('error', (err, ctx) => {console.error('app error',err.message)});
@@ -59,33 +60,33 @@ app.use(KoaStatic(BasePath));//建议加cdn
  */
 app.use(async (ctx, next)=>{
 	await DBManager.createDriver('sql')
-	await DBManager.createDriver('nosql')
+	// await DBManager.createDriver('nosql')
 
 	await DBManager.createClient('sql');//TODO pay attention to new client per req
-	await DBManager.createClient('nosql');//TODO pay attention to new client per req
+	// await DBManager.createClient('nosql');//TODO pay attention to new client per req
 
 	await Model.defineSql(DBManager.getClient('sql'));
-	await Model.defineNoSql(DBManager.getClient('nosql'));
+	// await Model.defineNoSql(DBManager.getClient('nosql'));
 
 	await next();
 });
-app.use(async (ctx, next)=>{
-	if(!global.DB_Redis){
-		global.DB_Redis = new Redis();
-	}
-	await DB_Redis.createClient().catch((err)=>{
-		console.log('err',err)
-		throw createError(500, 'load redis error', {expose:true});
-	});
-	await next();
-});
+// app.use(async (ctx, next)=>{
+// 	if(!global.DB_Redis){
+// 		global.DB_Redis = new Redis();
+// 	}
+// 	await DB_Redis.createClient().catch((err)=>{
+// 		console.log('err',err)
+// 		throw createError(500, 'load redis error', {expose:true});
+// 	});
+// 	await next();
+// });
 
 
 // ================================================================================================
 
 /** body start */
 //body parse
-app.use(LoadSessionFromRedis());
+// app.use(LoadSessionFromRedis());
 app.use(KoaBody({
 	multipart: true,
     encoding: 'utf-8',
@@ -95,7 +96,7 @@ app.use(KoaBody({
         maxFieldsSize: 5*1024*1024,
         onFileBegin:(name, file)=>{
 			// console.log('onFileBegin', name, file)
-			// file.path = '/data/www/web-node/upload/upload_8test.jpg';//此处可以修改file来做修改的，比如按照年/月/日创建层级目录
+			// file.path = '/var/www/web-node/upload/upload_8test.jpg';//此处可以修改file来做修改的，比如按照年/月/日创建层级目录
         }
 	}
 }));
@@ -129,12 +130,12 @@ app.use(async (ctx, next) => {
 /** footer end */
 
 //HttpServer
-let PORT = process.env.PORT || 80 ;
+let PORT = process.env.PORT || 8090 ;
 let http_server = app.listen(PORT,()=>{
-	console.log('127.0.0.1:'+PORT+' 启动完成！')
+	console.log('Node server 127.0.0.1:'+PORT+' 启动完成！')
 }); 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // WebSocketServer
-require(path.join(BasePath,'components','websocket','wss.js'))(http_server);
+// require(path.join(BasePath,'components','websocket','wss.js'))(http_server);
