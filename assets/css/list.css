@@ -1,0 +1,55 @@
+*{padding: 0;margin: 0;}
+ul,li{list-style: none;}
+body{
+    background: #eee;
+    color: #333;
+    font: 13px 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+@media (min-width: 1200px) {
+    .container,.container-lg,.container-md,.container-sm,.container-xl {
+        max-width:1400px
+    }
+}
+
+#listUl{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: wrap;
+    margin-top: 20px;
+}
+.liCom{
+    background: #ffff;
+    display: inline-block;
+    width: 25%;
+    min-width: 320px;
+    border: 5px solid #eee;
+    -webkit-animation: fadeInUp .3s .2s ease both;
+    -moz-animation: fadeInUp .3s .2s ease both;
+}
+.liCom > a{
+    color:inherit;
+}
+.liCom > a:hover{
+    color:inherit;
+    cursor: default;
+    text-decoration: none;
+}
+
+.imgMask img{
+    width: 310px;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+}
+.liCom .liTitle{
+    padding: 10px;font-size: 18px;font-weight: bolder;
+}
+.liCom .litip{text-align: center;padding: 10px 0;border-top: 1px dashed #ccc;}
+
+.pageBox {height: 30px;margin: 0 2.5%;padding-bottom: 20px;}
+.pageBox li{height: 30px;line-height: 30px;text-align: center;border: 1px solid #ccc;width: 80px;float: left;background: #fff;margin-left: 10px;}
+
+
+

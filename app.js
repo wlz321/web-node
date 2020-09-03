@@ -87,19 +87,19 @@ app.use(async (ctx, next)=>{
 /** body start */
 //body parse
 // app.use(LoadSessionFromRedis());
-app.use(KoaBody({
-	multipart: true,
-    encoding: 'utf-8',
-    formidable:{
-        uploadDir: path.join(BasePath, 'upload'),
-        keepExtensions: true,
-        maxFieldsSize: 5*1024*1024,
-        onFileBegin:(name, file)=>{
-			// console.log('onFileBegin', name, file)
-			// file.path = '/var/www/web-node/upload/upload_8test.jpg';//此处可以修改file来做修改的，比如按照年/月/日创建层级目录
-        }
-	}
-}));
+// app.use(KoaBody({
+// 	multipart: true,
+//     encoding: 'utf-8',
+//     formidable:{
+//         uploadDir: path.join(BasePath, 'upload'),
+//         keepExtensions: true,
+//         maxFieldsSize: 5*1024*1024,
+//         onFileBegin:(name, file)=>{
+// 			// console.log('onFileBegin', name, file)
+// 			// file.path = '/var/www/web-node/upload/upload_8test.jpg';//此处可以修改file来做修改的，比如按照年/月/日创建层级目录
+//         }
+// 	}
+// }));
 app.use(View('view', {
     noCache: !ENV_Production,
     watch: !ENV_Production
