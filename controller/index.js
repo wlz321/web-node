@@ -1,22 +1,34 @@
 const {Op, Model} = require('sequelize');
 const util = require('util');
+const FilmBiz = require('../biz/FilmBiz');
 
 module.exports = {
     "GET /":async ( ctx, next )=>{
         try{
             let page = ctx.query.page || 1;
-            let limit = 100;
+            let limit = 10;
             let offset = (page-1)*limit;
             ctx.state.pager = {
                 page,
                 limit
             }
-            let items = await Film1.findAll({offset, limit, raw: true , group : 'FilmID' });
-            let count = await Film1.count({ group: 'FilmID' });
-            console.log('items',items);
-            console.log('count',count);
+            let film_ids = await Film1.findAll({offset, limit, raw: true , group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
+                return fids.map((v)=>{
+                    return v.FilmID
+                })
+            })
 
-            await ctx.render('index.html',{test:{time:new Date().getTime()}});
+            let items  = [];
+            for(let i = 0 ;i < film_ids.length ; i ++){
+                let _items = await FilmBiz.getFilmItemsJSON(film_ids[i]);
+                if(_items){
+                    items.push(_items)
+                }
+            }
+            let count = await Film1.count({ group: 'FilmID' }).then((groupCounts)=>{
+                return groupCounts.length;
+            });
+            await ctx.render('index.html',{items,count,page,test:{time:new Date().getTime()}});
         }catch(e){
             ctx.response.body = e.message;
         }

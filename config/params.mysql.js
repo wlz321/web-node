@@ -1,7 +1,7 @@
-
+console.log(__filename+'    ENV_Production  ', ENV_Production)
 if(ENV_Production){
     module.exports = {
-        host:'127.0.0.1',
+        host:'121.36.202.19',
         port:'3306',
         username:'chw',
         password:'chw@Wifi654321',

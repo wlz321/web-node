@@ -29,16 +29,6 @@ let defineSQLModel = (sequelize_instance, name, attributes)=> {
             };
         }
     }
-    // attrs.created_at = {
-    //     type: Sequelize.INTEGER,
-    //     allowNull: false,
-    //     defaultValue:0
-    // };
-    // attrs.updated_at = {
-    //     type: Sequelize.INTEGER,
-    //     allowNull: false,
-    //     defaultValue:0
-    // };
     sequelize_instance.define(name, attrs, {
         tableName: name,
         timestamps: false,

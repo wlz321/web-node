@@ -7,9 +7,25 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/list.css">
 </head>
-<body>
+<body data-count="{{count}}" data-page="{{page}}" >
     <div class="container">
-        <ul id="listUl"></ul>
+        <ul id="listUl">
+            {% for item in items %}
+                <li class="liCom">
+                    <a href="/movie">
+                        <div class="imgMask">
+                            <img src="{{ item.mainimgsrc }}"/>
+                        </div>
+                        <div class="liTitle" title="{{ item.maintitle }}">{{ item.maintitle }}</div>
+                        <div class="litip"><span>{{ item.year }}</span>
+                            <span>{{ item._class }}</span>
+                        </div>
+                    </a>
+                </li>
+            {% else %}
+                <li>This would display if the 'item' collection were empty</li>
+            {% endfor %}
+        </ul>
         <ul class="pageBox">
             <li>上一页</li>
             <li>下一页</li>
@@ -51,11 +67,11 @@
             }
         ]
         var str='';
-        for(i in list){
-            str+='<li class="liCom"><a href="/movie"><div class="imgMask"><img src="'+list[i].src+'"/></div><div class="liTitle" title="'+list[i].title+'">'+list[i].title+'</div><div class="litip"><span>'+list[i].date+'</span><span>'+list[i].type+'</span></div></a></li>'
-        }
-        $('#listUl').append(str);
-        $('.liTitle').text().split('').length>46?$('.liTitle').text($('.liTitle').text().substring(0,46)+'...'):$('.liTitle').text($('.liTitle').text());
+        // for(i in list){
+        //     str+='<li class="liCom"><a href="/movie"><div class="imgMask"><img src="'+list[i].src+'"/></div><div class="liTitle" title="'+list[i].title+'">'+list[i].title+'</div><div class="litip"><span>'+list[i].date+'</span><span>'+list[i].type+'</span></div></a></li>'
+        // }
+        // $('#listUl').append(str);
+        // $('.liTitle').text().split('').length>46?$('.liTitle').text($('.liTitle').text().substring(0,46)+'...'):$('.liTitle').text($('.liTitle').text());
     </script>
 
 </body>

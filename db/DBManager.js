@@ -31,6 +31,7 @@ class DBManager{
         if(driver == 'sql'){
             MysqlClient.createClient()
             await MysqlClient.getClient().authenticate().catch((err)=>{
+                console.log('err',err)
                 throw createError(500, 'Unable to connect to the database mysql', {expose:true});
             });
         }else if(driver == 'nosql'){

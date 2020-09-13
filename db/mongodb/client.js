@@ -13,8 +13,13 @@ class Mongodb{
     }
     createClient(){
         return new Promise((resolve, reject)=>{
-            let uri = 'mongodb://'+config.username+':'+config.password+'@'+config.host+':'+config.port+'/'+config.db+'?authSource=node' ;
-            let tt = mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+            let uri = 'mongodb://'+config.host+':'+config.port ; //config.username+':'+config.password+'@'+  +'/'+config.db+'?authSource=node'
+            let options = {
+
+                useNewUrlParser: true, 
+                useUnifiedTopology: true
+            }
+            let tt = mongoose.connect(uri, options );
             this.client =  mongoose.connection;
             this.client.setMaxListeners(0);
             this.client.on('connected',(a)=>{
