@@ -6,72 +6,71 @@
     <title>电影列表</title>
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/assets/js/plugins/jquerypage/css/page.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/list.css">
 </head>
-<body data-count="{{count}}" data-page="{{page}}" >
+<body data-page="{{page}}" data-total_page={{total_page}} >
     <div class="container">
         <ul id="listUl">
             {% for item in items %}
                 <li class="liCom">
-                    <a href="/movie">
-                        <div class="imgMask">
+                    <div class="imgMask">
+                        <a href="/movie?id={{item.filmid}}">
                             <img src="{{ item.mainimgsrc }}"/>
-                        </div>
-                        <div class="liTitle" title="{{ item.maintitle }}">{{ item.maintitle }}</div>
-                        <div class="litip"><span>{{ item.year }}</span>
-                            <span>{{ item._class }}</span>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                    <div class="liTitle" title="{{ item.maintitle }}">{{ item.maintitle }}</div>
+                    <div class="litip">
+                        <span>{{ item.year }}</span>
+                        <span>{{ item._class }}</span>
+                    </div>
                 </li>
             {% else %}
                 <li>This would display if the 'item' collection were empty</li>
             {% endfor %}
         </ul>
-        <ul class="pageBox">
-            <li>上一页</li>
-            <li>下一页</li>
-        </ul>
+        <div id="pagination" class="page fl"></div>
+        <div class="footer">
+
+        </div>
     </div>
     <script type="text/javascript" src="/assets/js/jquery-3.5.1.min.js" ></script>
     <script type="text/javascript" src="/assets/js/bootstrap.min.js" ></script>
+    <script type="text/javascript" src="/assets/js/plugins/jquerypage/js/page.js" ></script>
+    <script type="text/javascript" src="/assets/js/pagination.js" ></script>
     <script type="text/javascript">
-        var list=[
-            {
-                "src":"/assets/image/film-cover.jpg",
-                "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
-                "date":"08-04",
-                "type":"蓝光高清"
-            },
-            {
-                "src":"/assets/image/film-cover.jpg",
-                "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
-                "date":"08-04",
-                "type":"蓝光高清"
-            },
-            {
-                "src":"/assets/image/film-cover.jpg",
-                "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
-                "date":"08-04",
-                "type":"蓝光高清"
-            },
-            {
-                "src":"/assets/image/film-cover.jpg",
-                "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
-                "date":"08-04",
-                "type":"蓝光高清"
-            },
-            {
-                "src":"/assets/image/film-cover.jpg",
-                "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
-                "date":"08-04",
-                "type":"蓝光高清"
-            }
-        ]
-        var str='';
-        // for(i in list){
-        //     str+='<li class="liCom"><a href="/movie"><div class="imgMask"><img src="'+list[i].src+'"/></div><div class="liTitle" title="'+list[i].title+'">'+list[i].title+'</div><div class="litip"><span>'+list[i].date+'</span><span>'+list[i].type+'</span></div></a></li>'
-        // }
-        // $('#listUl').append(str);
+        // var list=[
+        //     {
+        //         "src":"/assets/image/film-cover.jpg",
+        //         "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
+        //         "date":"08-04",
+        //         "type":"蓝光高清"
+        //     },
+        //     {
+        //         "src":"/assets/image/film-cover.jpg",
+        //         "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
+        //         "date":"08-04",
+        //         "type":"蓝光高清"
+        //     },
+        //     {
+        //         "src":"/assets/image/film-cover.jpg",
+        //         "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
+        //         "date":"08-04",
+        //         "type":"蓝光高清"
+        //     },
+        //     {
+        //         "src":"/assets/image/film-cover.jpg",
+        //         "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
+        //         "date":"08-04",
+        //         "type":"蓝光高清"
+        //     },
+        //     {
+        //         "src":"/assets/image/film-cover.jpg",
+        //         "title":"单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G",
+        //         "date":"08-04",
+        //         "type":"蓝光高清"
+        //     }
+        // ]
         // $('.liTitle').text().split('').length>46?$('.liTitle').text($('.liTitle').text().substring(0,46)+'...'):$('.liTitle').text($('.liTitle').text());
     </script>
 

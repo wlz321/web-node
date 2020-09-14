@@ -43,6 +43,16 @@ body{
     height: auto;
     display: block;
 }
+
+.imgMask img:hover {
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
+    transition-duration: .3s;
+    -webkit-transition-duration: .3s;
+    -moz-transition-duration: .3s;
+}
+
 .liCom .liTitle{
     padding: 10px;font-size: 18px;font-weight: bolder;
 }
@@ -51,5 +61,9 @@ body{
 .pageBox {height: 30px;margin: 0 2.5%;padding-bottom: 20px;}
 .pageBox li{height: 30px;line-height: 30px;text-align: center;border: 1px solid #ccc;width: 80px;float: left;background: #fff;margin-left: 10px;}
 
+
+.footer{
+    height: 100px;
+}
 
 
