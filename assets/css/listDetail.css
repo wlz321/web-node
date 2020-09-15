@@ -2,9 +2,9 @@
 ul,li{list-style: none;}
 html{background: #ccc;}
 .detailBox{margin: 0 20px;padding-bottom: 20px;}
-.detailLeft{padding:0 10px;width:90%;}
-.detailLeft #listDetail{margin-bottom: 20px;background: #fff;padding:10px;width:90%;}
-.DetailCom img{width: 92%;height: 400px;margin:20px auto;display: block;}
+.detailLeft{margin: 0px 10%;}
+.detailLeft #listDetail{margin-bottom: 20px;background: #fff;padding:10px;}
+.DetailCom img{margin:20px auto;display: block;}
 .DetailCom h3{padding: 10px 0;border-bottom: 2px solid #000;margin-bottom: 10px;}
 .detailLeft .comDiv{margin: 10px;line-height: 30px;}
 .addrList{background: #fff;padding: 10px;width: 90%;}

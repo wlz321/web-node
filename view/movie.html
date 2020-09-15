@@ -13,95 +13,37 @@
         <div class="detailLeft">
             <ul id="listDetail">
                 <li class="DetailCom">
-                    <h3>单车少年 蓝光原盘下载+高清MKV版/骑单车的男孩(台) / 单车男孩(港) / 骑脚踏车的小男生 / Boy with a Bike / Set Me Free / The Kid with a Bike 2011 Le gamin au vélo 41.0G</h3>
-                    <div>
-                        <span>lala&nbsp;</span>
-                        <span>&nbsp;08-08&nbsp;</span>
-                        <span>&nbsp;蓝光高清</span>
-                    </div>
-                    <img src="/assets/image/film-cover.jpg" />
-                    <div class="comDiv">
-                        <span>◎译　　名</span><span>　　梅子鸡之味 / 依恋，在生命最后八天(台) / 依恋在生命最后8天(港) / 梅子鸡 / Chicken with Plums / Huhn mit Pflaumen</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎片　　名</span><span>　　Poulet aux prunes</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎年　　代</span><span>　　2011</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎产　　地</span><span>　　法国 / 德国</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎类　　别</span><span>　　剧情 / 喜剧</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎语　　言</span><span>　　法语</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎上映日期</span><span>　　2008-12-12(美国)</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎IMDb评分</span><span>　　8.1/10 from 702713 users</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎IMDb链接</span><span>　　https://www.imdb.com/title/tt1205489</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎豆瓣评分</span><span>　　8.6/10 from 73065 users</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎豆瓣链接</span><span>　　https://movie.douban.com/subject/3026357/</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎片　　长</span><span>　　116 分钟</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎导　　演</span><span>　　克林特·伊斯特伍德</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎编　　剧</span><span>　　尼克·申克 / Dave Johannson</span>
-                    </div>
-                    <div class="comDiv">
-                        <span>◎主　　演</span><span>　　克林特·伊斯特伍德 / 克里斯托弗·卡利 / 比·王 / 安蕾·荷 / 布莱恩·黑利 / 杰拉尔丁·休斯 / 德瑞玛·沃克 / 布莱恩·豪威 / 约翰·卡洛·林奇 / 斯科特·伊斯特伍德</span>
-                    </div>
-                    <div class="comDiv">
-                        <br/>
-                        <p>◎简　　介</p>
-                        <br/>
-                        <p>因为妻子摔破了自己心爱的小提琴，音乐家纳瑟·阿里（马修·阿马立克 Mathieu Amalric饰）决定自杀，绝食八天后他终于死去。在这八天里，躺在床上的他回顾了自己的一生。他想起了自己与弟弟的小时候，想起了自己的女儿和儿子，想起了自己失败的婚姻，想起了母亲临死前的场景。当然，他还想起了自己一生的挚爱——伊兰娜（格什菲·法拉哈尼 Golshifteh Farahani 饰）。<br/>
-                        年轻时的他，音乐造诣并不高，被老师评价为只有技巧缺乏感情。有一次，他在一家钟表店邂逅了美丽的伊兰娜。从此他的命运改变了方向，他与伊兰娜经历了一场难忘的恋爱。然而，命运弄人，他与伊兰娜最终还是分开了……<br/>
-                        《梅子鸡之味》改编自导演 玛嘉·莎塔琵的绘本作品。主人公原型是导演的伯父，是伊朗一位著名的音乐家。
-                        </p>
-                    </div>
-                    <div class="comDiv">
-                        <br/>
-                        <p>◎获奖情况</p>
-                        <br/>
-                        <div>
-                            <p>第68届威尼斯电影节 (2011)</p>
-                            <p>金狮奖(提名) 玛嘉·莎塔琵 / 文森特·帕兰德</p>
+                    <h3>{{movie.h1_list}}</h3>
+                    <img src="{{movie.img_src[0]}}" />
+
+                    {% for info in movie.maininfo %}
+                        <div class="comDiv">
+                            <span>{{info}}</span>
                         </div>
-                        <br/>
-                        <div>
-                            <p>第3届豆瓣电影鑫像奖 (2013)</p>
-                            <p>鑫豆单元 最容易忽视的好电影(提名)</p>
-                        </div>
-                        <br/>
+                    {% endfor %}
+
+                    <div class="comDiv">
+                        <span>{{movie.maintext}}</span>
+                        <br><br>
+                        <span>{{movie.maintitle}}</span>
                     </div>
-                    <img src="/assets/image/film-cover.jpg" />
-                    <img src="/assets/image/film-cover.jpg" />
+
+                    <img src="{{movie.img_src[1]}}" />
+                    <img src="{{movie.img_src[2]}}" />
+
                 </li>
             </ul>
+            <h3>资源下载列表</h3>
             <ul class="addrList">
-                <li>
-                    <h3>资源下载列表</h3>
-                </li>
-                <li>
-                    <span class="colorBg coComm">蓝光原盘</span>
-                    <span class="contGb coComm">1.4GB</span>
-                    <span>Gran.Torino.2008.1080p.BluRay.x264-FGT</span>
-                </li>
+                {% for p in movie.table_blue_high_width %}
+                    <li>
+                        <a href="{{movie.table_blue_high[loop.index-1]}}">
+                            <span class="colorBg coComm">{{p}}</span>
+                            <span class="contGb coComm">{{movie.table_blue_high_diskspace[loop.index-1]}}</span>
+                            <span>{{movie.table_blue_high_filename[loop.index-1]}}</span>
+                        </a>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </div>
