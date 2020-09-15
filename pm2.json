@@ -29,7 +29,7 @@
             "instance_var":"NODE_APP_INSTANCE",
             "env": {
                "NODE_ENV": "production",
-               "PORT": 9000
+               "PORT": 80
             },
             "env_dev": {
                 "NODE_ENV": "development",
