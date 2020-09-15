@@ -1,4 +1,4 @@
 /logs/
 /node_modules/
 /test/
-params.mysql.js
+/config/params.js
