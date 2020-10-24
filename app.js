@@ -108,7 +108,7 @@ app.use(View('view', {
     watch: !ENV_Production
 }));
 //注册添加rest接口
-app.use(Rest.restify());
+// app.use(Rest.restify());
 app.use(Controller());
 /** body end */
 
