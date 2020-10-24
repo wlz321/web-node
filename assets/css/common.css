@@ -1,0 +1,16 @@
+body{
+    background: #eee;
+    color: #333;
+    font: 13px 微软雅黑, Verdana, Arial, Helvetica, sans-serif;
+    line-height: 1;
+}
+*{padding: 0;margin: 0;}
+ul,li{list-style: none;}
+
+
+.footer{
+    padding-top: 30px;
+}
+.footer .text-warning{
+    color:#8a6d3b !important;
+}
