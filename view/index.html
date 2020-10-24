@@ -15,6 +15,7 @@
         <div class="category-list">
             <span class="list-title">影视类型:</span>
             <ul class="list-content">
+                <li data-_class="">不限</li>
                 <li data-_class="剧情">剧情</li>
                 <li data-_class="喜剧">喜剧</li>
                 <li data-_class="惊悚">惊悚</li>
@@ -35,7 +36,6 @@
                 <li data-_class="音乐">音乐</li>
                 <li data-_class="歌舞">歌舞</li>
                 <li data-_class="运动">运动</li>
-                <li data-_class="不限">不限</li>
             </ul>
         </div>
         <ul id="listUl">
@@ -66,7 +66,20 @@
     <script type="text/javascript" src="/assets/js/plugins/jquerypage/js/page.js" ></script>
     <script type="text/javascript" src="/assets/js/pagination.js" ></script>
     <script type="text/javascript">
-        // $('.liTitle').text().split('').length>46?$('.liTitle').text($('.liTitle').text().substring(0,46)+'...'):$('.liTitle').text($('.liTitle').text());
+        $(".category-list .list-content li").on('click',function(ev){
+            var _class = $(ev.target).data('_class') || '';
+            var url = window.location.href;
+            if(url.indexOf('?_class')==-1 && url.indexOf('&_class')==-1){
+                if(url.indexOf('?') == -1){
+                    url += '?_class' = _class;
+                }else{
+                    url += '&_class' = _class;
+                }
+            }else{
+                url = url.replace(/_class=[^&]*/,'_class='+_class);
+            }
+            window.location.href = url;
+        })
     </script>
 </body>
 </html>
