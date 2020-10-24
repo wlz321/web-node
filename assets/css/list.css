@@ -12,6 +12,30 @@ body{
     }
 }
 
+
+.category-list{
+    height: 50px;
+    line-height: 50px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: baseline;
+}
+
+.category-list .list-title{
+    display: inline-block;
+    padding: 3px 15px;
+    background: #eae7d4;
+}
+.category-list .list-content{
+    display: flex;
+    line-height: 16px;
+    justify-content: start;
+}
+.category-list .list-content li{
+    padding:3px 10px;
+}
+
 #listUl{
     display: flex;
     justify-content: flex-start;
