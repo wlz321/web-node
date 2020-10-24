@@ -71,9 +71,9 @@
             var url = window.location.href;
             if(url.indexOf('?_class')==-1 && url.indexOf('&_class')==-1){
                 if(url.indexOf('?') == -1){
-                    url += '?_class' = _class;
+                    url += '?_class=' + _class;
                 }else{
-                    url += '&_class' = _class;
+                    url += '&_class=' + _class;
                 }
             }else{
                 url = url.replace(/_class=[^&]*/,'_class='+_class);
