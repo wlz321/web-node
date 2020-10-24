@@ -27,13 +27,13 @@ module.exports = {
             }
             let film_ids = [];
             if(_class){
-                film_ids = await Film1.findAll({offset, limit, raw: true , group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
+                film_ids = await Film1.findAll({offset, limit, raw: true , where:{ ItemName:'_class',ItemValue:'同性' }, group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
                     return fids.map((v)=>{
                         return v.FilmID
                     })
                 })
             }else{
-                film_ids = await Film1.findAll({offset, limit, raw: true , where:{ ItemName:'_class',ItemValue:'同性' }, group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
+                film_ids = await Film1.findAll({offset, limit, raw: true , group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
                     return fids.map((v)=>{
                         return v.FilmID
                     })
