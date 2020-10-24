@@ -19,7 +19,7 @@ module.exports = {
             let where = {}
             if(_class){
                 where['ItemName'] = '_class';
-                where['ItemValue'] = '同性'
+                where['ItemValue'] = _class
             }
 
             let count = await Film1.count({ group: 'FilmID', where }).then((groupCounts)=>{
