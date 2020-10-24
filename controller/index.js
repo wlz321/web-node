@@ -6,6 +6,8 @@ const fs = require('fs');
 module.exports = {
     "GET /":async ( ctx, next )=>{
         try{
+            let _class = ctx.query._class || '';
+
             let page = ctx.query.page || 1;
             let limit = 16;
             let offset = (page-1)*limit;
@@ -23,11 +25,20 @@ module.exports = {
                 page = 1;
                 return ctx.redirect('/?page=1');
             }
-            let film_ids = await Film1.findAll({offset, limit, raw: true , group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
-                return fids.map((v)=>{
-                    return v.FilmID
+            let film_ids = [];
+            if(_class){
+                film_ids = await Film1.findAll({offset, limit, raw: true , group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
+                    return fids.map((v)=>{
+                        return v.FilmID
+                    })
                 })
-            })
+            }else{
+                film_ids = await Film1.findAll({offset, limit, raw: true , where:{ ItemName:'_class',ItemValue:'同性' }, group : 'FilmID' ,attributes: ['FilmID']}).then((fids)=>{
+                    return fids.map((v)=>{
+                        return v.FilmID
+                    })
+                })
+            }
 
             let items  = [];
             for(let i = 0 ;i < film_ids.length ; i ++){
