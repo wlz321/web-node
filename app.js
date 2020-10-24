@@ -46,12 +46,13 @@ const app = new Koa({
 	keys: CookieKeys
 });
 app.on('error', (err, ctx) => {console.error('app error',err.message)});
+app.use(KoaStatic(AssetsPath));//建议加cdn
+
 app.use(cors());
 app.use(async (ctx, next) => {
 	ctx.set('X-Response-Time-Start', `${Date.now()}`);
 	await next();
 });
-app.use(KoaStatic(AssetsPath));//建议加cdn
 
 // ================================================================================================
 
