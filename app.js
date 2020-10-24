@@ -15,6 +15,7 @@ global.CookieKeys = ['ewareartrat43tw4tfrf'];
 global.ENV_Production = process.env.NODE_ENV === 'production';
 global.BasePath = __dirname;
 global.FrameWorkPath = path.join(BasePath, 'framework');
+global.AssetsPath = path.join(BasePath, 'assets');
 global.SessionExpire = 20 * 60;
 
 // ================================================================================================
@@ -50,7 +51,7 @@ app.use(async (ctx, next) => {
 	ctx.set('X-Response-Time-Start', `${Date.now()}`);
 	await next();
 });
-app.use(KoaStatic(BasePath));//建议加cdn
+app.use(KoaStatic(AssetsPath));//建议加cdn
 
 // ================================================================================================
 
