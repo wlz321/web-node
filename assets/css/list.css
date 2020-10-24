@@ -25,7 +25,8 @@ body{
 .category-list .list-title{
     display: inline-block;
     padding: 3px 15px;
-    background: #eae7d4;
+    background: #aaa;
+    color: #fff;
 }
 .category-list .list-content{
     display: flex;
@@ -34,6 +35,11 @@ body{
 }
 .category-list .list-content li{
     padding:3px 10px;
+    cursor: pointer;
+}
+
+.category-list .list-content li:hover{
+    color:#007bff
 }
 
 #listUl{
