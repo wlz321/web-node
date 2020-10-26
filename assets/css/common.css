@@ -8,8 +8,18 @@ body{
 ul,li{list-style: none;}
 
 
+#pagination{
+    margin: 50px 0;
+}
+
 .footer{
-    padding-top: 30px;
+    height: 200px;
+    background: #333;
+    padding: 0 20px;
+    padding-top: 20px;
+    margin-top: 50px;
+    color: #fff;
+    line-height: 20px;
 }
 .footer .text-warning{
     color:#8a6d3b !important;
